@@ -126,7 +126,7 @@ def detect(save_img=False):
                         print('detected object name is ', object_name)
                         original_img = im0
                         cropped_img = im0[y1:y2, x1:x2]
-                        cv2.imwrite('imageas/test.png',cropped_img)
+                        cv2.imwrite('imgs/' + p.name,cropped_img)
 
             # Print time (inference + NMS)
             print(f'{s}Done. ({t2 - t1:.3f}s)')
