@@ -14,6 +14,8 @@ from utils.general import check_img_size, check_requirements, check_imshow, non_
 from utils.plots import plot_one_box
 from utils.torch_utils import select_device, load_classifier, time_synchronized
 
+import os
+os.mkdir('./cropped_imgs')
 
 def detect(save_img=False):
     source, weights, view_img, save_txt, imgsz = opt.source, opt.weights, opt.view_img, opt.save_txt, opt.img_size
@@ -126,7 +128,7 @@ def detect(save_img=False):
                         print('detected object name is ', object_name)
                         original_img = im0
                         cropped_img = im0[y1:y2, x1:x2]
-                        cv2.imwrite('imgs/' + p.name,cropped_img)
+                        cv2.imwrite('cropped_imgs/' + p.name,cropped_img)
 
             # Print time (inference + NMS)
             print(f'{s}Done. ({t2 - t1:.3f}s)')
